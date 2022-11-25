@@ -52,12 +52,11 @@ console.log({genres})
             <Link to='cast'>Cast</Link>
         </li>
         <li>
-            <Link to='reviews'>Reviews</Link>
+            <Link to='review'>Review</Link>
         </li>
-        
        </ul>
         </div>
-       
+       <Outlet/>
 
     </div>
     

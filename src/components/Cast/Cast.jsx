@@ -8,8 +8,7 @@ const KEY = '?api_key=c45f6d5d61e66845ac8342820cc294e1'
 export const Cast = () => {
     const {moviesId} = useParams()
     const [casts, setCast] = useState([])
-    useEffect(() => {
-   
+    useEffect(() => {   
         async function fetchCastInfo () {
         
             console.log('moviesId', moviesId)
@@ -30,10 +29,13 @@ export const Cast = () => {
     //   }
     
 console.log({casts})
- return <div><ul>
-       {casts.name && casts.map(({name, profile_path, id}) => <li key={id}>
-        <img src={`https://image.tmdb.org/t/p/w500/${profile_path}`} alt=''/>
+ return <div>
+    <ul>
+   
+       {casts.cast && casts.cast.map(({name, profile_path, id}) => <li key={id}>
+        <img src={`https://image.tmdb.org/t/p/w500/${profile_path}`} width='120' alt=''/>
         <p>{name}</p>
+        
     </li>)}
  </ul>
    
