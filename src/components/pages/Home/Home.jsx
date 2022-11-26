@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import {  Link, useLocation } from "react-router-dom";
+import {  Ul, Li, Page} from "./Home.Style";
 
 const MAIN_URL = 'https://api.themoviedb.org/3/trending/movie/week?api_key=c45f6d5d61e66845ac8342820cc294e1'
-
+ 
 export const Home = () => {
    const [movieIds, setMovieIds] = useState([]);
    const location = useLocation()
@@ -21,13 +22,15 @@ export const Home = () => {
 fetchMainImage()
    }, [])
     return <main>
-         <ul>
-            {movieIds.map(({id, title}) =>            
-              <li key={id}>
+         <Ul>
+            {movieIds.map(({id, title, poster_path}) =>            
+              <Li key={id}>
+                <img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} width='200' height='300' alt=''/>
+
               <Link to={`movies/${id}`} state={ {from:location}}>
-                {title}</Link>
-              </li>
+              <Page><b>{title}</b></Page> </Link>
+              </Li>
            )}
-         </ul>
+         </Ul>
     </main>
 }

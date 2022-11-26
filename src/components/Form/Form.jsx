@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Box, Button } from "components/Form/Form.Style";
 
 
 export const Form = ({onSubmit}) => {
@@ -24,8 +25,8 @@ export const Form = ({onSubmit}) => {
         // console.log('onSubmit', moviesName)
     }
     return <form onSubmit={handleSubmit}>
-    <input type="text" placeholder="Search movies"   value={moviesName}
+    <Box type="text" placeholder="Search movies"   value={moviesName}
     onChange={handleMoviesNameChange}/>
-    <button type="submit" >Search</button>
+    <Button type="submit" >Search</Button>
    
 </form>}

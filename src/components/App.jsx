@@ -1,7 +1,7 @@
 import { Routes, Route} from "react-router-dom";
-import { Home } from "components/pages/Home";
+import { Home } from "components/pages/Home/Home";
 import { Layout } from "components/pages/Layout";
-import { Movies } from "components/pages/Movies";
+import { Movies } from "components/pages/Movies/Movies";
 import { Cast } from "components/Cast/Cast";
 import { Review } from "components/Review/Review";
 
@@ -20,10 +20,8 @@ export const App = () => {
           <Route path="/movies" element={<Movies/>}/>
           <Route path="movies/:moviesId" element={<MovieDetails/>}>
            <Route path="review" element={<Review/>}/>
-
             <Route path="cast" element={<Cast/>}/>
-            </Route>
-         
+            </Route>         
        </Route>               
      </Routes>
   

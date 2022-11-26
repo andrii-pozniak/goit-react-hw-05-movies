@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import {  Link, Outlet } from "react-router-dom";
+import { Section, Card, Details, Title, Page, GenresName, BackButton, Item } from "components/MovieDetails/MovieDetails.Style";
 
 
 
@@ -35,22 +36,25 @@ useEffect(() => {
 
     const {title, overview, genres,  poster_path, release_date} = movieId
     // console.log(location.state)
-    return <div>
+    return <Section>
         
-        <Link to={backLinkHref} >Go back</Link>
-        <div>
-          <img src={`https://image.tmdb.org/t/p/w500/${poster_path}`}  alt=''/>
-          <h2>{title}  <span>({(release_date).slice(0, 4)})</span></h2>
-        </div>
-       
-        <h2>Overview</h2>
-        <p>{overview}</p>
-        <h2>Genre</h2>
-       
-       {genres && genres.map(({name, id}) => <p key={id}>{name} </p>)} 
-       
-       <div>
-         <p>Additional information</p>
+        <Link to={backLinkHref} ><BackButton>Go back</BackButton></Link>
+        <Card>
+         <img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} width='280' alt={title}/>
+        
+      <Details>
+        <Title>{title}  <span>({release_date?.slice(0, 4)})</span></Title>
+        <Title>Overview</Title>
+        <Page>{overview}</Page>
+        <Title>Genre</Title>
+       <GenresName>
+       {genres && genres.map(({name, id}) => <Page key={id}>{name} </Page>)} 
+       </GenresName>
+      
+     </Details>
+       </Card>
+       <Item>
+         <Page>Additional information</Page>
          <ul>
            <li>
             <Link to='cast' state={ {from:backLinkHref}}>Cast</Link>
@@ -59,9 +63,9 @@ useEffect(() => {
             <Link to='review' state={ {from:backLinkHref}}>Review</Link>
            </li>
          </ul>
-        </div>
+        </Item>
        <Outlet/>
 
-    </div>
+    </Section>
     
 }
