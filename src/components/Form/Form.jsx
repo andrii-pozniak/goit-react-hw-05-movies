@@ -3,11 +3,12 @@ import { useState } from "react";
 
 export const Form = ({onSubmit}) => {
     const [moviesName, setMoviesName ] = useState('');
+    
 
     const handleMoviesNameChange = evt => {
      
         setMoviesName(evt.currentTarget.value.toLowerCase())
-        console.log(evt.currentTarget.value.toLowerCase())
+        // console.log(evt.currentTarget.value.toLowerCase())
        }
        const handleSubmit = event => {
       

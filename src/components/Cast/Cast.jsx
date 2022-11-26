@@ -11,7 +11,7 @@ export const Cast = () => {
     useEffect(() => {   
         async function fetchCastInfo () {
         
-            console.log('moviesId', moviesId)
+            // console.log('moviesId', moviesId)
             try{
                 const {data} = await axios.get(`${CAST}/${moviesId}/credits${KEY}&language=en-US`)
                 setCast(data)
@@ -24,16 +24,16 @@ export const Cast = () => {
         
       }, [moviesId])
 
-    //   if(casts.name === {}){
-    //     return
-    //   }
+      if(casts.name === {}){
+        return
+      }
     
-console.log({casts})
+// console.log({casts})
  return <div>
     <ul>
    
        {casts.cast && casts.cast.map(({name, profile_path, id}) => <li key={id}>
-        <img src={`https://image.tmdb.org/t/p/w500/${profile_path}`} width='120' alt=''/>
+    {profile_path && <img src={`https://image.tmdb.org/t/p/w500/${profile_path}`} width='120' alt=''/> }
         <p>{name}</p>
         
     </li>)}
