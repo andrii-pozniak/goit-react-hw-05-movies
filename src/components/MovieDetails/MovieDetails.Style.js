@@ -9,6 +9,7 @@ padding-right: ${p => p.theme.space[5]}px;
 export const Card = styled.div`
 display: flex;
 margin-top: ${p => p.theme.space[5]}px;
+
 `
 export const Details = styled.div`
 padding: ${p => p.theme.space[5]}px;
@@ -34,14 +35,16 @@ line-height: ${p => p.theme.lineHeights.body};
  
  padding: ${p => p.theme.space[3]}px;
  `
- export const GenresName = styled.p`
+ export const GenresName = styled.div`
  display: flex;
- /* padding-left: ${p => p.theme.space[3]}px;
- padding-right: ${p => p.theme.space[3]}px; */
+
  `
- export const BackButton = styled.a`
- width: ${p => p.theme.space[7]}px;
- height: ${p => p.theme.space[5]}px;
+ export const BackButton = styled.div`
+ display: flex;
+ align-items: center;
+ justify-content: space-around;
+  width: ${p => p.theme.space[8]}px; 
+ /* height: ${p => p.theme.space[5]}px; */ 
  padding: ${p => p.theme.space[2]}px;
  border: ${p => p.theme.borders.normal};
  background-color: ${p => p.theme.colors.background};
@@ -49,10 +52,18 @@ line-height: ${p => p.theme.lineHeights.body};
  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 
  0px 1px 1px rgba(0, 0, 0, 0.14),
  0px 2px 1px rgba(0, 0, 0, 0.2);
+ text-decoration: none;
+ &:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 
+ 0px 1px 1px rgba(0, 0, 0, 0.14),
+ 0px 1px 1px rgba(0, 0, 0, 0.2);
+    }
  `
  export const Item = styled.div`
  padding: ${p => p.theme.space[3]}px;
-
+ margin-top: ${p => p.theme.space[3]}px;
+ background-color: ${p => p.theme.colors.background};
 box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 
 0px 1px 1px rgba(0, 0, 0, 0.14),
 0px 2px 1px rgba(0, 0, 0, 0.2);

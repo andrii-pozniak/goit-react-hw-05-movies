@@ -2,7 +2,12 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import {  Link, Outlet } from "react-router-dom";
-import { Section, Card, Details, Title, Page, GenresName, BackButton, Item } from "components/MovieDetails/MovieDetails.Style";
+import { GrLinkPrevious } from "react-icons/gr"
+
+import { Section, 
+    Card, Details, 
+    Title, Page, GenresName, 
+    BackButton, Item } from "components/MovieDetails/MovieDetails.Style";
 
 
 
@@ -37,8 +42,8 @@ useEffect(() => {
     const {title, overview, genres,  poster_path, release_date} = movieId
     // console.log(location.state)
     return <Section>
-        
-        <Link to={backLinkHref} ><BackButton>Go back</BackButton></Link>
+        <div>
+        <Link to={backLinkHref} ><BackButton><GrLinkPrevious/> Go back</BackButton></Link>
         <Card>
          <img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} width='280' alt={title}/>
         
@@ -55,6 +60,7 @@ useEffect(() => {
        </Card>
        <Item>
          <Page>Additional information</Page>
+         <div>
          <ul>
            <li>
             <Link to='cast' state={ {from:backLinkHref}}>Cast</Link>
@@ -63,7 +69,11 @@ useEffect(() => {
             <Link to='review' state={ {from:backLinkHref}}>Review</Link>
            </li>
          </ul>
+         </div>
+         
         </Item>
+        </div>
+        
        <Outlet/>
 
     </Section>

@@ -25,9 +25,9 @@ fetchMainImage()
          <Ul>
             {movieIds.map(({id, title, poster_path}) =>            
               <Li key={id}>
-                <img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} width='200' height='300' alt=''/>
-
               <Link to={`movies/${id}`} state={ {from:location}}>
+              <img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} width='200' height='300' alt=''/>
+
               <Page><b>{title}</b></Page> </Link>
               </Li>
            )}
