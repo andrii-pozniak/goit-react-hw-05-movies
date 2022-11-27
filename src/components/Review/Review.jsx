@@ -1,4 +1,5 @@
 import axios from "axios";
+import PropTypes from 'prop-types';
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import {  Outlet } from "react-router-dom";
@@ -42,3 +43,12 @@ export const Review = () => {
 <Outlet/>
     </div>
 }
+
+Review.propTypes = {   
+    reviews: PropTypes.shape({
+        content: PropTypes.string.isRequired,
+        author: PropTypes.string.isRequired, 
+        id: PropTypes.number.isRequired, 
+      
+    }),
+  };

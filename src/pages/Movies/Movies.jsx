@@ -1,4 +1,6 @@
 import axios from "axios";
+import PropTypes from 'prop-types';
+
 import { useState, useEffect, Suspense } from "react";
 import { Form } from "components/Form/Form";
 import { Link, Outlet, useLocation, useSearchParams } from "react-router-dom";
@@ -56,3 +58,9 @@ const NAME_URL = 'https://api.themoviedb.org/3/search/movie?api_key=c45f6d5d61e6
   </div>
 }
 export default Movies;
+
+Movies.propTypes = {
+  data: PropTypes.array,
+  results: PropTypes.arrayOf(PropTypes.object),
+  
+  }

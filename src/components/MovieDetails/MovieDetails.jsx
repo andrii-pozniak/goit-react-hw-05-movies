@@ -1,4 +1,5 @@
 import axios from "axios";
+import PropTypes from 'prop-types'
 import { useState, useEffect, Suspense } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import {  Link, Outlet } from "react-router-dom";
@@ -19,8 +20,6 @@ const {moviesId} = useParams()
 const [movieId, setMovieId] = useState({})
 const backLinkHref = location.state?.from ??'/movies';
  
-console.log('backLinkHref', backLinkHref)
-
 useEffect(() => {
    
     async function fetchMoviesInfo () {
@@ -78,3 +77,14 @@ useEffect(() => {
     
 }
 export default MovieDetails;
+
+MovieDetails.propTypes = {   
+    movieId: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        overview:PropTypes.string.isRequired, 
+        genres: PropTypes.string.isRequired,
+        poster_path: PropTypes.string.isRequired,
+        release_date: PropTypes.string.isRequired,
+      
+    }),
+  };

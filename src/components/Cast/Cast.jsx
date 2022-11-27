@@ -1,4 +1,5 @@
 import axios from "axios";
+import PropTypes from 'prop-types';
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import {  Outlet } from "react-router-dom";
@@ -45,3 +46,12 @@ const KEY = '?api_key=c45f6d5d61e66845ac8342820cc294e1'
 
 }
 export default Cast;
+
+Cast.propTypes = {   
+    casts: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        profile_path: PropTypes.string.isRequired, 
+        id: PropTypes.number.isRequired, 
+      
+    }),
+  };

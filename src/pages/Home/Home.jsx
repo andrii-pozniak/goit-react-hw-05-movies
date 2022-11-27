@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import PropTypes from 'prop-types';
 import {  Link, useLocation } from "react-router-dom";
 import {  Ul, Li, Page} from "./Home.Style";
 
@@ -34,3 +35,8 @@ fetchMainImage()
          </Ul>
     </main>
 }
+Home.propTypes = {
+  data: PropTypes.array,
+  results: PropTypes.arrayOf(PropTypes.object),
+  
+  }
