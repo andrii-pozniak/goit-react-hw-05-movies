@@ -36,3 +36,18 @@ margin-top: ${p => p.theme.space[2]}px;
  margin-right: auto;
     margin-left: auto;
 `
+export const Avatar = styled.p`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 180px;
+    margin: ${p => p.theme.space[1]}px;
+    text-decoration: dashed;
+    background-image: url('compo');
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: ${p => p.theme.fontWeights.normal};
+    font-size: ${p => p.theme.fontSizes.m}px;
+    line-height: ${p => p.theme.lineHeights.body};
+    `

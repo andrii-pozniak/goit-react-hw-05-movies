@@ -6,7 +6,7 @@ import { Page, Ul, Li, Avatar } from "components/Cast/Cast.Style";
 const CAST = 'https://api.themoviedb.org/3/movie'
 const KEY = '?api_key=c45f6d5d61e66845ac8342820cc294e1'
 
-export const Cast = () => {
+ const Cast = () => {
     const {moviesId} = useParams()
     const [casts, setCast] = useState([])
     useEffect(() => {   
@@ -44,3 +44,4 @@ export const Cast = () => {
  </div>
 
 }
+export default Cast;
